@@ -61,9 +61,8 @@ public class Menu {
         printerService.println("4 - Cadastrar Disciplina");
         printerService.println("5 - Editar Disciplina");
         printerService.println("6 - Deletar Disciplina");
-        printerService.println("7 - Inserir Estudante em Disciplina");
-        printerService.println("8 - Listar Tudo");
-        printerService.println("9 - Sair");
+        printerService.println("7 - Listar Tudo");
+        printerService.println("8 - Sair");
     }
 
     private void processarOpcao(int opcao) {
@@ -87,12 +86,9 @@ public class Menu {
                 deleteDisciplina();
                 break;
             case 7:
-                inserirAluno();
-                break;
-            case 8:
                 showAll();
                 break;
-            case 9:
+            case 8:
                 printerService.println("Encerrando...");
                 break;
             default:
@@ -177,31 +173,5 @@ public class Menu {
         disciplinaController.update(codigoAntigo, novoNome, novoProfessor, novoTurno);
     }
 
-    private void inserirAluno() {
-        List<Estudante> listaEstudantes = estudanteController.getLista();
-        List<Disciplina> listaDisciplinas = disciplinaController.getLista();
-
-        if (listaEstudantes.isEmpty() || listaDisciplinas.isEmpty()) {
-            printerService.println("Cadastre ao menos um estudante e uma disciplina antes.");
-            return;
-        }
-
-        estudanteController.showAll();
-        printerService.println("Escolha o índice do estudante: ");
-        int i = readerService.nextInt();
-
-        disciplinaController.showAll();
-        printerService.println("Escolha o índice da disciplina: ");
-        int j = readerService.nextInt();
-
-        if (i < 0 || i >= listaEstudantes.size() || j < 0 || j >= listaDisciplinas.size()) {
-            printerService.println("Índice inválido.");
-            return;
-        }
-
-        Estudante estudante = listaEstudantes.get(i);
-        Disciplina disciplina = listaDisciplinas.get(j);
-        disciplina.inserirEstudante(estudante);
-        printerService.println("Estudante " + estudante.getNome() + " inserido em " + disciplina.getNome() + ".");
     }
-}
+
