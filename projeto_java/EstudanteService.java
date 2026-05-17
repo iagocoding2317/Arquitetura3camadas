@@ -17,8 +17,8 @@ public class EstudanteService {
         return estudanteRepository.findByMatricula(matricula);
     }
 
-    public boolean update(String matricula, String novoNome, String novoCurso, String novoPeriodo, int novaIdade) {
-        return estudanteRepository.update(matricula, novoNome, novoCurso, novoPeriodo, novaIdade);
+    public boolean update(String novoNome, String matricula, String novoCurso, String novoPeriodo, int novaIdade) {
+        return estudanteRepository.update(novoNome, matricula, novoCurso, novoPeriodo, novaIdade);
     }
 
     public boolean delete(String matricula) {
