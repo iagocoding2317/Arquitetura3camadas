@@ -45,7 +45,4 @@ public class EstudanteRepository {
         return false;
     }
 
-    public List<Estudante> getLista() {
-        return lista;
-    }
 }
