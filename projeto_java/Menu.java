@@ -1,5 +1,3 @@
-import java.util.List;
-import java.util.Scanner;
 
 public class Menu {
     public static final PrinterService printerService = new PrinterService();
@@ -50,7 +48,7 @@ public class Menu {
             exibirMenu();
             opcao = readerService.nextInt();
             processarOpcao(opcao);
-        } while (opcao != 9);
+        } while (opcao != 8);
     }
 
     private void exibirMenu() {
@@ -93,7 +91,7 @@ public class Menu {
                 break;
             default:
                 printerService.println("Opção inválida.");
-        }
+        } 
     }
 
     private static void deleteEstudante() {
